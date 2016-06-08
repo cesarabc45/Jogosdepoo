@@ -1,12 +1,10 @@
-//biblioteca
-#include <iostream>
+#include <iostream> //estar abrindo à biblioteca
 using namespace std;
+int main() // funcao principal
+{
 
-//funcao principal
-int main() {
-	// imprimindo na tela
-	cout << "H E L L O  W O R L D!!" << endl;
+	cout << "helloworld" << endl; //imprimindo na tela
 
-	//final do programa
-	return 0;
+	return 0; //fechando o programa
+
 }
