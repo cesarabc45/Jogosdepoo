@@ -1,64 +1,71 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-
 using namespace std;
 
 int main()
 {
-	int Vida1 = 20, Vida2 = 20;
-	int dano1 = 0, dano2 = 0;
-	string P1, P2;
 	bool sair = false;
+	string jog1, jog2;
+	int vida1 = 20, vida2 = 20;
+	int danoc1 = 0, danoc2 = 0;//Dano causado
 
-	cout << "\aDigite o nome do player 1" << endl;
-	cin >> P1;
-	cout << "\aDigite o nome do player 2" << endl;
-	cin >> P2;
+	cout << "Digite o nome do jogador 1:" << endl;
+	cin >> jog1;
+
+	cout << "Digite o nome do jogador 2:" << endl;
+	cin >> jog2;
 
 	while (sair == false)
 	{
-		cout << "-" << dano1 << "                   -" << dano2 << endl;
-		cout << " o                   o  " << endl;
-		cout << ".T./               \\.T." << endl;
-		cout << " ^                   ^  " << endl;
-		cout << P1 << "                " << P2 << endl;
-		cout << "Vida: " << Vida1 << "         " << " Vida: " << Vida2 << endl;
-		cout << "Atk: 2" << "         " << "Atk: 2" << endl;
-		cout << "Def: 4" << "         " << "Def: 4" << endl;
-
-		int dado6;
-		srand((int)time(0));
-
-		dado6 = rand() % 6 + 1;
-		dano1 = dado6 - 4;
-		if (dado6 < 4)
-		{
-			dano1 = 0;
-		}
-		Vida1 = Vida1 - dano1;
-
-		dado6 = rand() % 6 + 1;
-		dano2 = dado6 - 4;
-		if (dado6 < 4)
-		{
-			dano2 = 0;
-		}
-		Vida2 = Vida2 - dano2;
+		cout << "-" << danoc1 << "                           -" << danoc2 << endl;
+		cout << " o                             o" << endl;
+		cout << ".T./                         \\.T. " << endl;
+		cout << " ^                             ^" << endl;
+		cout << "Atq: 4                        Atq: 4" << endl;
+		cout << "Def: 2                        Def: 2" << endl;
+		cout << jog1 << "                         " << jog2 << endl;
+		cout << "Vida: " << vida1 << "                    " << "Vida: " << vida2 << endl;
 		system("pause");
+		int dado6;//Dado de 6 lados
+		srand((int)time(0));
+		dado6 = rand() % 6 + 1;
+		danoc1 = dado6 - 4;
+		if (danoc1 < 0)
+		{
+			danoc1 = 0;
+		}
+		vida1 = vida1 - danoc1;
 
-		cout << "Vida: " << Vida1 << "         " << "Vida: " << Vida2 << endl;
+		//srand((int)time(0));
+		dado6 = rand() % 6 + 1;
+		danoc2 = dado6 - 4;
+		if (danoc2 < 0)
+		{
+			danoc2 = 0;
+		}
+		vida2 = vida2 - danoc2;
 
-		if (Vida1 <= 0 || Vida2 <= 0)
+		//cout << "Vida: " << vida1 << "                    " << "Vida: " << vida2 << endl;
+		system("cls");
+
+		if (vida1 <= 0 || vida2 <= 0)
 		{
 			sair = true;
 		}
-		system("cls");
 	}
-	cout << "Game Over" << endl;
-	if (Vida1 > 0) cout << "Vitoria de: " << P1 << endl;
-	else if (Vida2 > 0) cout << "Vitoria de: " << P2 << endl;
-	else cout << "Ambos perderam" << endl;
 
+	if (vida1 < vida2)
+	{
+		cout << jog2 << " Venceu!" << endl;
+	}
+	else if (vida2 < vida1)
+	{
+		cout << jog1 << " Venceu!" << endl;
+	}
+	else
+	{
+		cout << "Empate!" << endl;
+	}
 	return 0;
 }
