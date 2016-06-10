@@ -1,5 +1,5 @@
 #include <iostream> //estar abrindo à biblioteca
-using namespace std;
+using namespace std; //Para não recisar escrever "std"
 int main() // funcao principal
 {
 
